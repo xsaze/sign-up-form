@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+</head>
+<body>
+
+<div class="logo">
+<div class="logo-text">SISSY</div>
+<div class="credit">Photo by <a href="https://unsplash.com/@ganinph?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dmitry Ganin</a> on <a href="https://unsplash.com/t/fashion-beauty?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></div>
+<div class="logo-img"><img src="/images/woman-updated.jpg"></div>
+</div>
+
+<div class="container">
+<div class="description">
+<div class="description-text">Welcome to <strong>SISSY</strong>!<br><br>You are about to experience astral adventure in the world of fashion.<br><br><strong>Join us</strong> today!</div></div>
+
+<div class="sign-up-form">
+    <div class="middle-container">
+    <form id="registerForm" method="POST" action="#">
+        <div class="row">
+            <div class="input-field">
+                <label for="first_name">FIRST NAME</label>
+                <input type="text" name="first_name" id="first_name" required>
+            </div>
+            <div class="input-field">
+                <label for="last_name">LAST NAME</label>
+                <input type="text" name="last_name" id="last_name" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <label for="email">EMAIL</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="input-field">
+                <label for="phone_number">PHONE NUMBER</label>
+                <input type="text" name="phone_number" id="phone_number" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <label for="password">PASSWORD</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="input-field">
+                <label for="password_confirm">CONFIRM PASSWORD</label>
+                <input type="password" name="password_confirm" id="password_confirm" required>
+            </div>
+        </div>
+        <div class="error-hidden" id="pwNoMatch">Passwords do not match!</div>
+    </div>
+</div>
+
+<div class="sign-up-bottom">
+    <div class="create-account-btn">
+        <button type="submit" value="submit">Create Account</button>
+    </div>
+    </form>
+    <div class="already-registered">Already have an account? <a href="#">Log in</a></div>
+</div>
+
+</div>
+<script>
+    registerForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (password.value === password_confirm.value) {registerForm.submit();}
+        else {pwNoMatch.className = 'error';
+        password.className = 'error-border';
+        password_confirm.className = 'error-border'}
+    });
+
+    window.addEventListener('keyup', (event) => {
+        if (password.value === password_confirm.value && password.value != '') {
+            password.className = 'green-border';
+            password_confirm.className = 'green-border';
+            pwNoMatch.className = 'error-hidden';
+        }
+    })
+    </script>
+</body>
+</html>
